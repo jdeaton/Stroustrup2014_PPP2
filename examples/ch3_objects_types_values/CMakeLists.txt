@@ -12,3 +12,4 @@ add_executable(ch3_ex4 std_lib_facilities.h ex4.cpp)
 
 # Section 3.4: Operations and operators.
 add_executable(ch3_ex5 std_lib_facilities.h ex5.cpp)
+add_executable(ch3_ex6 std_lib_facilities.h ex6.cpp)
