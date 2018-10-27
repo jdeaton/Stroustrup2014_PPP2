@@ -1,2 +1,3 @@
 add_subdirectory(ch2_hello_world)
 add_subdirectory(ch3_objects_types_values)
+add_subdirectory(ch6_writing_a_program)
