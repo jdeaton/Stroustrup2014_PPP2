@@ -6,3 +6,6 @@ add_executable(ch6_ex2 std_lib_facilities.h ex2.cpp)
 
 # Sections 6.3.2: Implementing tokens & 6.3.4: Using tokens.
 add_executable(ch6_ex3 std_lib_facilities.h ex3.cpp)
+
+# Section 6.5 Turning a grammer into code.
+add_executable(ch6_ex4 std_lib_facilities.h ex4.cpp)
