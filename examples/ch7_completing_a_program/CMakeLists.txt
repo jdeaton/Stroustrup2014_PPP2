@@ -6,3 +6,6 @@ add_executable(ch7_ex1 std_lib_facilities.h ex1.cpp)
 
 # Section 7.3: Error handling.
 add_executable(ch7_ex2 std_lib_facilities.h ex2.cpp)
+
+# Section 7.4: Negative numbers.
+add_executable(ch7_ex3 std_lib_facilities.h ex3.cpp)
