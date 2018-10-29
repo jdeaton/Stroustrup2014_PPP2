@@ -14,6 +14,9 @@ add_executable(ch6_ex3 std_lib_facilities.h ex3.cpp)
 
 # Sections 6.5 Turning a grammer into code.
 #          6.6 Trying the first version.
-#          6.7 Trying the second version.
-#          6.8 Token streams.
 add_executable(ch6_ex4 std_lib_facilities.h ex4.cpp)
+
+# Sections 6.7 Trying the second version.
+#          6.8 Token streams.
+#          6.9 Program structure.
+add_executable(ch6_ex5 std_lib_facilities.h ex5.cpp)
