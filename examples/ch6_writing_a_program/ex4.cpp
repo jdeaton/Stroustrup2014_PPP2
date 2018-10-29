@@ -1,4 +1,4 @@
-// Implementation and use of a Token type for the calculator program.
+// Implementation and use of a Grammar for the calculator program.
 
 #include "std_lib_facilities.h"
 
@@ -6,56 +6,31 @@ class Token {
 public:
     char kind;
     double value;
+    Token(char ch): kind(ch), value(0) { }
+    Token(char ch, double val): kind(ch), value(val) { }
 };
 
-class Token_stream {
-public:
-    Token_stream();
-    Token get();
-    void putback(Token t);
-private:
-    bool full {false};
-    Token buffer;
-};
-
-void Token_stream::putback(Token t) {
-    if (full) { error("Cannot putback() into a full buffer."); }
-    buffer = t;
-    full = true;
-}
-
-Token Token_stream::get() {
-    if (full) { // return token in buffer if present
-        full = false;
-        return buffer;
-    }
-
+Token get_token() {
     char ch;
     cin >> ch;
 
     switch (ch) {
-        case ';': // print
-        case 'q': // quit
         case '(': case ')': case '+': case '-': case '*': case '/':
-            return Token {ch};
+            return Token(ch);        // let each character represent itself
         case '.':
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
         {
-            cin.putback(ch); // put digit back into input stream
+            cin.putback(ch);         // put digit back into the input stream
             double val;
-            cin >> val;
-            return Token {'8', val}; // '8' represents number
+            cin >> val;              // read a floating-point number
+            return Token('8',val);   // let '8' represent "a number"
         }
         default:
-            error("Bad token.");
+            error("Bad token");
     }
 }
 
-
-Token get_token() {
-    return Token();
-}
 double expression();
 double term();
 double primary();
@@ -64,7 +39,7 @@ double expression() {
     double left = term();
     Token t = get_token();
     while(true) {
-        switch(t.kind) {
+        switch (t.kind) {
             case '+':
                 left += term();
                 t = get_token();
@@ -83,7 +58,7 @@ double term() {
     double left = primary();
     Token t = get_token();
     while(true) {
-        switch(t.kind) {
+        switch (t.kind) {
             case '*':
                 left *= primary();
                 t = get_token();
@@ -104,10 +79,38 @@ double term() {
 }
 
 double primary() {
-
+    Token t = get_token();
+    switch (t.kind) {
+        case '(': {
+            double d = expression();
+            t = get_token();
+            if (t.kind != ')') {
+                error("') expected.");
+            }
+            return d;
+        }
+        case '8':
+            return t.value;
+        default:
+            error("Primary expected.");
+    }
 }
 
 int main()
 {
-    return 0;
+    try {
+        while (cin) {
+            cout << "=" << expression() << "\n";
+        }
+    }
+    catch (exception& e) {
+        cerr << e.what() << "\n";
+        keep_window_open();
+        return 1;
+    }
+    catch (...) {
+        cerr << "Exception. \n";
+        keep_window_open();
+        return 2;
+    }
 }
