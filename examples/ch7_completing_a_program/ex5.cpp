@@ -1,4 +1,31 @@
-// Implementating a Token_stream into the calculator program.
+/*
+ * Simple calculator program.
+ *
+ * This program implements a basic expression calculator from Stroustrup
+ * Programming: Principles and Practice, 2nd edition.
+ *
+ * Input from cin; output to cout;
+ * The grammer for the input is:
+ *   Statement: Expression
+ *              Print
+ *              Quit
+ *   Print: ;
+ *   Quit: q
+ *   Expression: Term
+ *               Expression + Term
+ *               Expression - Term
+ *   Term: Primary
+ *         Term * Primary
+ *         Term / Primary
+ *         Term % Primary
+ *   Primary: Number
+ *            ( Expression )
+ *            - Primary
+ *            + Primary
+ *   Number: Floating-point literal
+ *
+ *   Input comes from cin through the Token_stream called ts.
+ */
 
 #include <cmath>
 #include "std_lib_facilities.h"
@@ -49,12 +76,18 @@ Token Token_stream::get() {
 
     switch (ch) {
         case print: // print, ';'
-        case quit: // quit, 'q'
-        case '(': case ')': case '+': case '-': case '*': case '/': case '%':
-            return Token {ch};
-        case '.':
-        case '0': case '1': case '2': case '3': case '4':
-        case '5': case '6': case '7': case '8': case '9':
+        case quit:  // quit, 'q'
+        case '(':
+        case ')':
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '%':
+            return Token {ch}; // let characters represent themselves
+        case '.':  // floating-point literal can start with a decimal
+        case '0': case '1': case '2': case '3': case '4': // numeric literals
+        case '5': case '6': case '7': case '8': case '9': // represent themselves
         {
             cin.putback(ch); // put digit back into input stream
             double val;
