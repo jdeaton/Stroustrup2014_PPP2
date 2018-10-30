@@ -19,3 +19,6 @@ add_executable(ch7_ex5 std_lib_facilities.h ex5.cpp)
 # Section 7.7: Recovering from errors.
 add_executable(ch7_ex6 std_lib_facilities.h ex6.cpp)
 
+# Section 7.8: Variables.
+add_executable(ch7_ex7 std_lib_facilities.h ex7.cpp)
+
