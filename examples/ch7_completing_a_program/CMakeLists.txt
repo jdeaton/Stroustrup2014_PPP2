@@ -9,3 +9,7 @@ add_executable(ch7_ex2 std_lib_facilities.h ex2.cpp)
 
 # Section 7.4: Negative numbers.
 add_executable(ch7_ex3 std_lib_facilities.h ex3.cpp)
+
+# Section 7.5: Remainder %.
+add_executable(ch7_ex4 std_lib_facilities.h ex4.cpp)
+
