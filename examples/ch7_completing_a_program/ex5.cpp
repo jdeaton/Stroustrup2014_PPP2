@@ -147,24 +147,29 @@ double primary() {
     }
 }
 
+void calculate() {
+    while (cin) {
+        cout << prompt;
+        Token t = ts.get();
+
+        while (t.kind == print) {
+            t = ts.get();
+        }
+
+        if (t.kind == quit) {
+            keep_window_open();
+            return;
+        }
+        ts.putback(t);
+        cout << result << expression() << '\n';
+    }
+}
+
 int main()
 {
     try {
-        while (cin) {
-            cout << prompt;
-            Token t = ts.get();
-
-            while (t.kind == print) {
-                t = ts.get();
-            }
-
-            if (t.kind == quit) {
-                keep_window_open();
-                return 0;
-            }
-            ts.putback(t);
-            cout << result << expression() << '\n';
-        }
+        calculate();
+        return 0;
     }
     catch (exception& e) {
         cerr << e.what() << "\n";
