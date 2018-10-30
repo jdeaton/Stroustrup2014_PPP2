@@ -13,3 +13,6 @@ add_executable(ch7_ex3 std_lib_facilities.h ex3.cpp)
 # Section 7.5: Remainder %.
 add_executable(ch7_ex4 std_lib_facilities.h ex4.cpp)
 
+# Section 7.6: Cleaning up the code.
+add_executable(ch7_ex5 std_lib_facilities.h ex5.cpp)
+
