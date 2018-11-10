@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_subdirectory(drills)
 add_subdirectory(examples)
+add_subdirectory(exercises)
