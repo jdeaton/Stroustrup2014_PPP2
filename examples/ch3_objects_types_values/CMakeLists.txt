@@ -14,3 +14,6 @@ add_executable(ch3_ex4 std_lib_facilities.h ex4.cpp)
 add_executable(ch3_ex5 std_lib_facilities.h ex5.cpp)
 add_executable(ch3_ex6 std_lib_facilities.h ex6.cpp)
 add_executable(ch3_ex7 std_lib_facilities.h ex7.cpp)
+
+# Section 3.5: Assignment and initialization.
+add_executable(ch3_ex8 std_lib_facilities.h ex8.cpp)
