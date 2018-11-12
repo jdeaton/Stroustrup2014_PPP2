@@ -17,3 +17,6 @@ add_executable(ch3_ex7 std_lib_facilities.h ex7.cpp)
 
 # Section 3.5: Assignment and initialization.
 add_executable(ch3_ex8 std_lib_facilities.h ex8.cpp)
+
+# Section 3.6: Composite assigment operators.
+add_executable(ch3_ex9 std_lib_facilities.h ex9.cpp)
