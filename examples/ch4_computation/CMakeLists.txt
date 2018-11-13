@@ -13,5 +13,7 @@ add_executable(ch4_ex4 std_lib_facilities.h ex4.cpp) # while-loop, for-loop
 # Section 4.5 Functions.
 add_executable(ch4_ex5 std_lib_facilities.h ex5.cpp)
 
+# Section 4.6: vector.
+add_executable(ch4_ex6 std_lib_facilities.h ex6.cpp)
 
 
